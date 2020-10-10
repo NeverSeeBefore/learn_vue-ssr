@@ -1,9 +1,9 @@
 <template>
   <div>
     <h3>Home</h3>
-    <!-- <div>{{ title }}</div>
+    <div>{{ title }}</div>
     <div>{{ content }}</div>
-    <div><input type="text" v-model="content" /></div> -->
+    <div><input type="text" v-model="content" /></div>
   </div>
 </template>
 

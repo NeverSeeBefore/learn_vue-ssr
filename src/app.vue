@@ -1,19 +1,23 @@
 <template>
     <div id="app">
-        {{ content }}
-        <br />
-        <a href="/home">home</a>
-        <a href="/about">about</a>
-
+        app
+        <div>
+            <a href="/home">home</a>
+            <a href="/about">about</a>
+        </div>
+        <router-view></router-view>
     </div>
 </template>
-<script>
 
+<script>
+import Home from './components/Home.vue';
 export default {
-    data() {
-        return {
-            content: 'data in app.vue'
-        }
+    components: {
+        Home
     }
 }
 </script>
+
+<style>
+
+</style>

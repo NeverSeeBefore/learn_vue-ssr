@@ -10,17 +10,17 @@ export default function createRouter () {
         mode: 'history',
         routes: [
             {
-                path: '/',
-                component: Home
-            },
-            {
                 path: '/home',
                 component: Home
             },
             {
                 path: '/about',
                 component: About
-            }
+            },
+            {
+                path: '/',
+                component: Home
+            },
         ]
     })
 }

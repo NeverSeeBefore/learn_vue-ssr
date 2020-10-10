@@ -3,6 +3,7 @@ const fs = require('fs');
 const express = require('express');
 const Vue = require('vue');
 const vueServerRenderer = require('vue-server-renderer');
+const cons = require('consolidate');
 const createApp = require('../dist/server.bundle.js')['default'];
 
 
@@ -12,11 +13,12 @@ const render = vueServerRenderer.createRenderer({
 });
 
 // server.use(express.static(path.join(__dirname, '../assets/home')))
-// server.use(express.static(path.join(__dirname, '../dist')));
+server.use(express.static(path.join(__dirname, '../dist')));
 
 server.use('*', (req, res) => {
-
-    const app = createApp();
+    console.log('被请求', req.url);
+    const app = createApp({url: req.url});
+    console.log('创建app成功');
 
     render.renderToString(app, {
         description: 'description',
@@ -25,8 +27,11 @@ server.use('*', (req, res) => {
         script: '<script src="/client.bundle.js"></script>'
     }, (err, html) => {
         if(err){
-            throw err;
+            console.log('生成字符串失败');
+            // throw err;
+            res.end('fail');
         }
+        console.log('生成字符串成功');
         res.end(html)
     });
 })

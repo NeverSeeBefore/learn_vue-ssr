@@ -1,5 +1,6 @@
 import createApp from '../src/app.js';
 
-export default () => {
-    return createApp();
+export default (ctx) => {
+    const app = createApp();
+    app.$router.push(ctx.url);
 };

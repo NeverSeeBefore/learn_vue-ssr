@@ -5,18 +5,12 @@
   "repository": "git@github.com:NeverSeeBefore/learn_vue-ssr.git",
   "author": "chenxiaoxu <v_chenxiaoxu01@baidu.com>",
   "license": "MIT",
-  "scripts": {
-    "dev:server": "webpack --config ./webpack/webpack.server.js",
-    "dev:client": "webpack --config ./webpack/webpack.client.js"
-  },
   "dependencies": {
     "express": "^4.17.1",
     "vue": "^2.6.12",
-    "vue-loader": "^15.9.3",
-    "vue-router": "^3.4.6",
-    "vue-server-renderer": "^2.6.12",
-    "vue-template-compiler": "^2.6.12",
-    "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
+    "vue-server-renderer": "^2.6.12"
+  },
+  "scripts": {
+    "start": "nodemon ./server/index.js"
   }
 }

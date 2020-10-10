@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="app">
         <h3>{{content}}</h3>
         <input type="text" v-model="content">
     </div>

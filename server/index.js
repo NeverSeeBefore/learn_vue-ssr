@@ -12,6 +12,7 @@ const render = vueServerRenderer.createRenderer({
 });
 
 server.use(express.static(path.join(__dirname, '../assets/home')))
+server.use(express.static(path.join(__dirname, '../dist')));
 
 server.use('/ssr', (req, res) => {
 
@@ -20,7 +21,8 @@ server.use('/ssr', (req, res) => {
     render.renderToString(app, {
         description: 'description',
         keyword: 'a, b, c, d, e, f, g',
-        data: '<meta name="test" content="test content">'
+        data: '<meta name="test" content="test content">',
+        script: '<script src="/client.bundle.js"></script>'
     }, (err, html) => {
         if(err){
             throw err;

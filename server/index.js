@@ -3,6 +3,7 @@ const fs = require('fs');
 const express = require('express');
 const Vue = require('vue');
 const vueServerRenderer = require('vue-server-renderer');
+const createApp = require('../dist/server.bundle.js')['default'];
 
 
 const server = express();
@@ -13,13 +14,8 @@ const render = vueServerRenderer.createRenderer({
 server.use(express.static(path.join(__dirname, '../assets/home')))
 
 server.use('/ssr', (req, res) => {
-    const app = new Vue({
-        template: '<div>{{ content }} {{ name }}</div>',
-        data: {
-            content: 'content in data',
-            name: '陈晓旭'
-        }
-    });
+
+    const app = createApp();
 
     render.renderToString(app, {
         description: 'description',

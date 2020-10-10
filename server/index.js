@@ -11,10 +11,10 @@ const render = vueServerRenderer.createRenderer({
     template: fs.readFileSync(path.join(__dirname, '../index.template.html'), 'utf-8')
 });
 
-server.use(express.static(path.join(__dirname, '../assets/home')))
-server.use(express.static(path.join(__dirname, '../dist')));
+// server.use(express.static(path.join(__dirname, '../assets/home')))
+// server.use(express.static(path.join(__dirname, '../dist')));
 
-server.use('/ssr', (req, res) => {
+server.use('*', (req, res) => {
 
     const app = createApp();
 
